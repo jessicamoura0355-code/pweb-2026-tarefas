@@ -16,31 +16,18 @@
         <button>Nova Atividade</button>
 
         <table>
-
-            <tr>
-                <th>Nome da Atividade</th>
-                <th>Status</th>
-                <th>Prazo</th>
-            </tr>
-
-            <tr>
-                <td>Estudar HTML</td>
-                <td>Em andamento</td>
-                <td>20/06/2026</td>
-            </tr>
-
-            <tr>
-                <td>Fazer trabalho</td>
-                <td>Concluído</td>
-                <td>18/06/2026</td>
-            </tr>
-
-            <tr>
-                <td>Pesquisar Bootstrap</td>
-                <td>Pendente</td>
-                <td>25/06/2026</td>
-            </tr>
-
+                {% for atividade in atividades %}
+                    <tr>
+                        <th>Nome:</th>
+                        <th>Status:</th> 
+                        <th>Prazo:</th>
+                    </tr>
+                    <tr>
+                        <td>{{atividade.nome}}</td>
+                        <td>{{atividade.status}}</td> 
+                        <td>{{atividade.prazo}}</td>
+                    </tr>
+                {% endfor %}
         </table>
 
     </div>
