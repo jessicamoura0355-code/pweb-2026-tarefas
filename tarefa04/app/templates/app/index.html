@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,18 +17,18 @@
         <button>Nova Atividade</button>
 
         <table>
-                {% for atividade in atividades %}
-                    <tr>
-                        <th>Nome:</th>
-                        <th>Status:</th> 
-                        <th>Prazo:</th>
-                    </tr>
-                    <tr>
-                        <td>{{atividade.nome}}</td>
-                        <td>{{atividade.status}}</td> 
-                        <td>{{atividade.prazo}}</td>
-                    </tr>
-                {% endfor %}
+            <tr>
+                <th><h3>Nome:</h3></th>
+                <th><h3>Status:</h3></th> 
+                <th><h3>Prazo:</h3></th>
+            </tr>
+            {% for atv in atividades %}
+                <tr>
+                    <td>{{atv.nome}}</td>
+                    <td>{{atv.status}}</td> 
+                    <td>{{atv.prazo}}</td>
+                </tr>
+            {% endfor %}
         </table>
 
     </div>
