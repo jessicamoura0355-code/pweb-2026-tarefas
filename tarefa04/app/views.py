@@ -1,21 +1,14 @@
 from django.shortcuts import render
+from .models import Atividade
+from datetime import date
 
 def index(request):
-    lista_atividades = [
-        {
-            "nome": "estudar html", 
-            "status": "em andamento",
-            "prazo": "30/06",
-        },
-        {
-            "nome": "estudar html", 
-            "status": "em andamento",
-            "prazo": "30/06",
-        },
-    ]
+
+    atividades = Atividade.objects.all()
 
     context = {
-        "atividades": lista_atividades,
+        "atividades": atividades,
+        "hoje": date.today(),
     }
 
     return render(request, "app/index.html", context)

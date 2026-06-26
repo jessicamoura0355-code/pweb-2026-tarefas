@@ -14,21 +14,33 @@
 
         <h1>Registro de Atividades</h1>
 
-        <button>Nova Atividade</button>
-
         <table>
             <tr>
-                <th><h3>Nome:</h3></th>
-                <th><h3>Status:</h3></th> 
-                <th><h3>Prazo:</h3></th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Prazo</th>
             </tr>
+
             {% for atv in atividades %}
-                <tr>
-                    <td>{{atv.nome}}</td>
-                    <td>{{atv.status}}</td> 
-                    <td>{{atv.prazo}}</td>
-                </tr>
+            <tr>
+
+                {% if atv.prazo < hoje %}
+                    <td>{{ atv.nome }}</td>
+                    <td>{{ atv.status }}</td>
+                    <td style="color:red">{{ atv.prazo }}</td>
+
+
+                {% else %}
+
+                    <td>{{ atv.nome }}</td>
+                    <td>{{ atv.status }}</td>
+                    <td>{{ atv.prazo }}</td>
+
+                {% endif %}
+
+            </tr>
             {% endfor %}
+
         </table>
 
     </div>
