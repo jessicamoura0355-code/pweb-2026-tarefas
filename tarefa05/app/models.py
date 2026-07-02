@@ -4,7 +4,7 @@ class Posts(models.Model):
     titulo = models.CharField(max_length=50)
     texto = models.TextField(max_length=200)
     imagem = models.ImageField(upload_to="app/static/imgs")
-    data_publi = models.DateField()
+    data_publi = models.DateField(auto_now=True)
     
     def __str__(self):
         return self.titulo
