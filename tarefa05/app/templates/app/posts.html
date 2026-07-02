@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<section class="post">
+
+    <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}">
+
+    <h2>{{ post.titulo }}</h2>
+
+    <p class="data">
+        {{ post.data_publi }}
+    </p>
+
+    <div class="texto">
+
+        {{ post.texto }}
+
+    </div>
+
+</section>
+
+{% endblock %}

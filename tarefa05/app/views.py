@@ -1,22 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Posts
 
 def index(request):
     
-    posts = Posts.objects.all()
-    
     context = {
-        "posts": posts,
+        "posts": Posts.objects.all()
     }
-    
-    return render (request, "app/templates/index.html", context)
 
-def post(request, id):
-    
-    postagem = get_object_or_404(Posts, id=id)
+    return render (request, "app/index.html", context)
+
+def post(request, id_post):
     
     context = {
-        "post": postagem,
+        "post": get_object_or_404(Posts, id=id_post)
     }
     
-    return render(request, "app/templates/posts.html", context)
+    return render(request, "app/posts.html", context)
